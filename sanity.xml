@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Sanity Suite" verbose="1" parallel="methods" thread-count="3" >
+    <test name="Login">
+        <groups>
+            <run>
+                <include name="sanity"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="login.LoginPageTest" />
+        </classes>
+    </test>
+    <test name="Products">
+        <groups>
+            <run>
+                <include name="sanity"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="products.ProductsPageTest" />
+        </classes>
+    </test>
+</suite>
