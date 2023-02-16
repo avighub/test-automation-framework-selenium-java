@@ -5,14 +5,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import   utilities.ConfigurationManager;
 
-import static utilities.ConfigurationManager.FRAMEWORK_PROPERTIES;
+import static utilities.ConfigurationManager.*;
+
 
 public class DriverManager {
 
-  private DriverManager(){}
+  private DriverManager(){
 
-  private static final String BROWSER_NAME =FRAMEWORK_PROPERTIES.getProperty("BROWSER_NAME");
+  }
+
+  private static final String BROWSER_NAME = ConfigurationManager.BROWSER_NAME;
+                                //FRAMEWORK_PROPERTIES.getProperty("BROWSER_NAME");
   public static WebDriver getDriver()
     {
       WebDriver driver=null;

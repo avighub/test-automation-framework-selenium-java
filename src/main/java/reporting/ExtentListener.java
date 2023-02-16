@@ -43,6 +43,9 @@ public class ExtentListener implements ITestListener {
 //      ExtentFactory.getExtentTest().addScreenCaptureFromBase64String(base64Screenshot);
       ExtentFactory.getExtentTest().fail(MediaEntityBuilder.createScreenCaptureFromBase64String(base64Screenshot).build());
       ExtentFactory.getExtentTest().fail("Test is FAIL");
+      ExtentFactory.getExtentTest().fail(result.getThrowable());
+
+
 
     }
 

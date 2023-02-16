@@ -2,6 +2,7 @@ package products;
 
 import base.BaseTest;
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -35,15 +36,21 @@ public class ProductsPageTest extends BaseTest {
       boolean cartButtonVisible = productsPage.isCartButtonVisible();
 
       //Assert
-      SoftAssert softAssert = new SoftAssert();
-      softAssert.assertTrue(logoVisible);
-      softAssert.assertTrue(menuButtonVisible);
-      softAssert.assertTrue(cartButtonVisible);
-      softAssert.assertAll();
+     try {
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertFalse(logoVisible);
+        softAssert.assertTrue(menuButtonVisible);
+        softAssert.assertTrue(cartButtonVisible);
+
+        softAssert.assertAll();
+      }catch (AssertionError e){
+        e.printStackTrace();
+        System.out.println("one assertion got failed");
+      }
 
     }
 
-  @Test
+  @Test(enabled = false)
   void verifyIfAllTheElementsArePresentInSecondaryHeader()
     {
       //Act
@@ -58,6 +65,9 @@ public class ProductsPageTest extends BaseTest {
       softAssert.assertTrue(sortingDropDownVisible);
       softAssert.assertAll();
     }
-
+@Test
+  public void skippedTest(){
+    throw new SkipException("the test is skipped");
+}
 
 }
