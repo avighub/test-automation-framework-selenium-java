@@ -19,7 +19,7 @@ public class ExtentListener implements ITestListener {
   public void onStart(ITestContext context) {
     log.debug("onStart()");
     extentManager = new ExtentManager();
-    extentReports = extentManager.initialize();
+//    extentReports = extentManager.initialize();
   }
 
   @Override

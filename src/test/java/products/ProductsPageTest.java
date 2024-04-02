@@ -1,6 +1,6 @@
 package products;
 
-import base.BaseTest;
+import base.TestSetup;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.BeforeMethod;
@@ -11,63 +11,61 @@ import pages.ProductsPage;
 
 import static utilities.driverutils.DriverFactory.getDriver;
 
-public class ProductsPageTest extends BaseTest {
+public class ProductsPageTest extends TestSetup {
 
   private LoginPage loginPage;
   private ProductsPage productsPage;
 
   @BeforeMethod
-  void preValidation()
-    {
-      loginPage = new LoginPage(getDriver());
-      loginPage.navigateToLoginPge(); // navigate to login
-      productsPage=loginPage.loginAsStandardUser(); //injecting cookie
-      productsPage.navigateToProductsPge(); //Jumping to product page
-      boolean isDisplayed = productsPage.isRobotImageVisible();
-      Assert.assertTrue(isDisplayed);
-    }
+  void preValidation() {
+    loginPage = new LoginPage(getDriver());
+    loginPage.navigateToLoginPge(); // navigate to login
+    productsPage = loginPage.loginAsStandardUser(); //injecting cookie
+    productsPage.navigateToProductsPge(); //Jumping to product page
+    boolean isDisplayed = productsPage.isRobotImageVisible();
+    Assert.assertTrue(isDisplayed);
+  }
 
   @Test
-  void verifyIfAllTheElementsArePresentInPrimaryHeader()
-    {
-      //Act
-      boolean logoVisible = productsPage.isLogoVisible();
-      boolean menuButtonVisible = productsPage.isMenuButtonVisible();
-      boolean cartButtonVisible = productsPage.isCartButtonVisible();
+  void verifyIfAllTheElementsArePresentInPrimaryHeader() {
+    //Act
+    boolean logoVisible = productsPage.isLogoVisible();
+    boolean menuButtonVisible = productsPage.isMenuButtonVisible();
+    boolean cartButtonVisible = productsPage.isCartButtonVisible();
 
-      //Assert
-     try {
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertFalse(logoVisible);
-        softAssert.assertTrue(menuButtonVisible);
-        softAssert.assertTrue(cartButtonVisible);
+    //Assert
+    try {
+      SoftAssert softAssert = new SoftAssert();
+      softAssert.assertFalse(logoVisible);
+      softAssert.assertTrue(menuButtonVisible);
+      softAssert.assertTrue(cartButtonVisible);
 
-        softAssert.assertAll();
-      }catch (AssertionError e){
-        e.printStackTrace();
-        System.out.println("one assertion got failed");
-      }
-
+      softAssert.assertAll();
+    } catch (AssertionError e) {
+      e.printStackTrace();
+      System.out.println("one assertion got failed");
     }
+
+  }
 
   @Test(enabled = false)
-  void verifyIfAllTheElementsArePresentInSecondaryHeader()
-    {
-      //Act
-      boolean productTitleVisible = productsPage.isProductTitleVisible();
-      boolean robotImageVisible = productsPage.isRobotImageVisible();
-      boolean sortingDropDownVisible = productsPage.isSortingDropDownVisible();
+  void verifyIfAllTheElementsArePresentInSecondaryHeader() {
+    //Act
+    boolean productTitleVisible = productsPage.isProductTitleVisible();
+    boolean robotImageVisible = productsPage.isRobotImageVisible();
+    boolean sortingDropDownVisible = productsPage.isSortingDropDownVisible();
 
-      //Assert
-      SoftAssert softAssert = new SoftAssert();
-      softAssert.assertTrue(productTitleVisible);
-      softAssert.assertTrue(robotImageVisible);
-      softAssert.assertTrue(sortingDropDownVisible);
-      softAssert.assertAll();
-    }
-@Test
-  public void skippedTest(){
+    //Assert
+    SoftAssert softAssert = new SoftAssert();
+    softAssert.assertTrue(productTitleVisible);
+    softAssert.assertTrue(robotImageVisible);
+    softAssert.assertTrue(sortingDropDownVisible);
+    softAssert.assertAll();
+  }
+
+  @Test
+  public void skippedTest() {
     throw new SkipException("the test is skipped");
-}
+  }
 
 }

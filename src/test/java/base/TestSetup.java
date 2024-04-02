@@ -1,13 +1,11 @@
 package base;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
-import reporting.ExtentListener;
 import utilities.driverutils.DriverFactory;
 
-@Listeners(ExtentListener.class)
+//@Listeners(ExtentListener.class)
 public class TestSetup {
 
   /**
@@ -15,12 +13,12 @@ public class TestSetup {
    */
   protected WebDriver driver;
 
-  @BeforeMethod(alwaysRun = true)
+  @BeforeEach
   public void setupDriver() {
     driver = DriverFactory.getDriver();
   }
 
-  @AfterMethod(alwaysRun = true)
+  @AfterEach
   public void cleanUp() {
     DriverFactory.quitDriver();
   }
