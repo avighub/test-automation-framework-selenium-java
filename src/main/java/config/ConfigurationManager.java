@@ -1,6 +1,7 @@
-package utilities;
+package config;
 
 import lombok.extern.slf4j.Slf4j;
+import utilities.FileReaderUtil;
 
 import java.util.Objects;
 import java.util.Properties;

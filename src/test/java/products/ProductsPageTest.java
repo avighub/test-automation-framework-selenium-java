@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 import pages.LoginPage;
 import pages.ProductsPage;
 
-import static utilities.driverutils.DriverFactory.getDriver;
+import static webdriver.DriverFactory.getDriver;
 
 public class ProductsPageTest extends TestSetup {
 

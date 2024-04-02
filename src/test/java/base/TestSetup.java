@@ -3,7 +3,7 @@ package base;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import utilities.driverutils.DriverFactory;
+import webdriver.DriverFactory;
 
 //@Listeners(ExtentListener.class)
 public class TestSetup {

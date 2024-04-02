@@ -1,12 +1,12 @@
 package pages;
 
+import config.ConfigurationManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utilities.ConfigurationManager;
-import utilities.driverutils.SeleniumUtils;
+import utilities.SeleniumUtils;
 
 import java.time.Duration;
 
@@ -50,7 +50,7 @@ public class LoginPage extends LoadableComponent<LoginPage> {
 
   public LoginPage enterUsername(String username) {
     new WebDriverWait(driver, Duration.ofSeconds(30))
-      .until(ExpectedConditions.visibilityOfElementLocated(USERNAME_TEXTBOX));
+            .until(ExpectedConditions.visibilityOfElementLocated(USERNAME_TEXTBOX));
 
     System.out.println("Enter Username: " + username);
     driver.findElement(USERNAME_TEXTBOX).sendKeys(username);

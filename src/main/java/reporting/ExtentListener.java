@@ -6,8 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import utilities.driverutils.DriverFactory;
-import utilities.driverutils.SeleniumUtils;
+import utilities.SeleniumUtils;
+import webdriver.DriverFactory;
 
 @Slf4j
 public class ExtentListener implements ITestListener {

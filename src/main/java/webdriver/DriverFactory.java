@@ -1,8 +1,8 @@
-package utilities.driverutils;
+package webdriver;
 
+import config.ConfigurationManager;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.WebDriver;
-import utilities.ConfigurationManager;
 
 /**
  * 1- This class deals with only one thing, that is to manage driver object
