@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import pages.LoginPage;
 import utilities.SeleniumUtils;
 
-public class LoginPageTest extends TestSetup {
+class LoginPageTest extends TestSetup {
   private LoginPageTest() {
   }
 
