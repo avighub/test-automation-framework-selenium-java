@@ -1,6 +1,6 @@
 package login;
 
-import base.BaseTest;
+import base.TestSetup;
 import com.aventstack.extentreports.Status;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -10,9 +10,8 @@ import pages.LoginPage;
 import utilities.driverutils.SeleniumUtils;
 
 import static reporting.ExtentFactory.getExtentTest;
-import static utilities.driverutils.DriverFactory.getDriver;
 
-public class LoginPageTest extends BaseTest {
+public class LoginPageTest extends TestSetup {
   private LoginPageTest() {
   }
 
@@ -25,7 +24,7 @@ public class LoginPageTest extends BaseTest {
     loginPage.navigateToLoginPge();
   }
 
-  @DataProvider(parallel = false)
+  @DataProvider
   private Object[][] getValidLoginCredentials() {
     return new Object[][] {
       {"standard_user", "secret_sauce"},
@@ -33,7 +32,7 @@ public class LoginPageTest extends BaseTest {
     };
   }
 
-  @DataProvider(parallel = false)
+  @DataProvider
   public static Object[][] getInvalidLoginCredentials() {
     return new Object[][] {
       {"standard_user", "secret_sauce_invalid1"},
@@ -50,8 +49,8 @@ public class LoginPageTest extends BaseTest {
       .loginAsUser(username, password)
       .isProductTitleVisible();
 
-    SeleniumUtils.setLocalStorage("key1", "value1", getDriver());
-    SeleniumUtils.setSessionStorage("key1", "value1", getDriver());
+    SeleniumUtils.setLocalStorage("key1", "value1", driver);
+    SeleniumUtils.setSessionStorage("key1", "value1", driver);
     getExtentTest().log(Status.INFO, "Session storage created");
     Assert.assertTrue(productTitleVisible);
   }
@@ -61,6 +60,7 @@ public class LoginPageTest extends BaseTest {
     throws InterruptedException {
     //Act
     loginPage.loginAsUser(username, password);
+    // This is intentional to make the thread wait for this scenario
     Thread.sleep(3000);
     //Assert
     String expectedValidationErrorMessage = "Epic sadface: Username and password do not match any user in this service";
