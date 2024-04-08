@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.LoginPage;
-import utilities.driverutils.SeleniumUtils;
+import utilities.SeleniumUtils;
 
 
 public class LoginPageTest extends TestSetup {

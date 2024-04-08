@@ -1,4 +1,4 @@
-package utilities.driverutils;
+package webdriver;
 
 public enum BrowserName {
   CHROME,

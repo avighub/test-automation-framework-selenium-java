@@ -3,7 +3,7 @@ package base;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import utilities.driverutils.DriverFactory;
+import webdriver.DriverFactory;
 
 //@Listeners(ExtentListener.class)
 public class TestSetup {
