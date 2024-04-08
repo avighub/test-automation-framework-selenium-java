@@ -1,6 +1,7 @@
 package reporting;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.ITestContext;
@@ -12,25 +13,21 @@ import webdriver.DriverFactory;
 @Slf4j
 public class ExtentListener implements ITestListener {
 
-  ExtentReports extentReports;
-  ExtentManager extentManager;
+  private ExtentReports extentReports;
 
   @Override
   public void onStart(ITestContext context) {
-    log.debug("onStart()");
-    extentManager = new ExtentManager();
-//    extentReports = extentManager.initialize();
+    extentReports = new ExtentReportsManager().initializeReport();
   }
 
   @Override
   public void onTestStart(ITestResult result) {
-    log.debug("onTestStart()");
-    ExtentFactory.setExtentTest(extentReports.createTest(result.getMethod().getMethodName()));
+    ExtentTest extentTest = extentReports.createTest(result.getMethod().getMethodName());
+    ExtentFactory.setExtentTest(extentTest);
   }
 
   @Override
   public void onTestSuccess(ITestResult result) {
-    log.debug("onTestSuccess()");
     ExtentFactory.getExtentTest().pass("Test is PASS");
   }
 
@@ -54,6 +51,6 @@ public class ExtentListener implements ITestListener {
   public void onFinish(ITestContext context) {
     log.debug("onFinish()");
     extentReports.flush();
-    ExtentFactory.removeTest();
+    ExtentFactory.remove();
   }
 }
