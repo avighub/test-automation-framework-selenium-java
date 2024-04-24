@@ -47,8 +47,8 @@
 
 ## Steps
 
-1. Create test class under src/test/java/packagename
-2. Ex: ``` src/test/login.LoginPageTest ```
+1. Create test class under src/test/java/tests/{packagename}
+2. Ex: ``` src/test/tests/saucedemo/LoginPageTest ```
 3. Always follow a meanigful naming standard to write package, class, method, variable , file names
 4. Once class is created, extend it with ``` BaseTest.java ```
 5. Provide required paramters such as groups, description for each test methods
@@ -61,7 +61,6 @@
         void verifyUserIsAbleToLoginWithStandardcredentials(){
                 // write code here
         }
-
     }
    ```
 

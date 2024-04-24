@@ -8,7 +8,7 @@
             </run>
         </groups>
         <classes>
-            <class name="login.LoginPageTest"/>
+            <class name="tests.saucedemo.LoginPageTest"/>
         </classes>
     </test>
     <test name="Products">
@@ -18,7 +18,7 @@
             </run>
         </groups>
         <classes>
-            <class name="products.ProductsPageTest"/>
+            <class name="tests.saucedemo.ProductsPageTest"/>
         </classes>
     </test>
 </suite>
