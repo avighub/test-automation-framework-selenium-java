@@ -1,6 +1,5 @@
 package config.retry;
 
-import org.testng.IAnnotationTransformer;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
@@ -8,7 +7,7 @@ import org.testng.ITestResult;
  * How to use this Retry logic?
  * - Add the annotation @Test(retryAnalyzer = RetryTests.class) with Test annotation
  */
-public class RetryAnalyzer implements IRetryAnalyzer, IAnnotationTransformer {
+public class RetryAnalyzer implements IRetryAnalyzer {
 
   private int retryCount = 0;
 
