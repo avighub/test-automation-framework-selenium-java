@@ -1,11 +1,11 @@
-package login;
+package tests.saucedemo;
 
 import base.TestSetup;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pages.LoginPage;
+import pages.saucedemo.LoginPage;
 import utilities.SeleniumUtils;
 
 

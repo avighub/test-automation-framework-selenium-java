@@ -1,4 +1,4 @@
-package products;
+package tests.saucedemo;
 
 import base.TestSetup;
 import org.testng.Assert;
@@ -6,8 +6,8 @@ import org.testng.SkipException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.LoginPage;
-import pages.ProductsPage;
+import pages.saucedemo.LoginPage;
+import pages.saucedemo.ProductsPage;
 
 import static webdriver.DriverFactory.getDriver;
 
