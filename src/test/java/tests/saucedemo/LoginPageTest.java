@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.saucedemo.LoginPage;
-import utilities.SeleniumUtils;
 
 
 public class LoginPageTest extends TestSetup {
@@ -17,9 +16,7 @@ public class LoginPageTest extends TestSetup {
 
   @BeforeMethod
   void setupState() {
-    loginPage = new LoginPage(driver);
-//      loginPage.get();
-    loginPage.navigateToLoginPge();
+    loginPage = new LoginPage(driver).get();
   }
 
   @DataProvider
@@ -45,8 +42,6 @@ public class LoginPageTest extends TestSetup {
             .loginAsUser(username, password)
             .isProductTitleVisible();
 
-    SeleniumUtils.setLocalStorage("key1", "value1", driver);
-    SeleniumUtils.setSessionStorage("key1", "value1", driver);
     Assert.assertTrue(productTitleVisible);
   }
 
@@ -57,10 +52,11 @@ public class LoginPageTest extends TestSetup {
     loginPage.loginAsUser(username, password);
     // This is intentional to make the thread wait for this scenario
     Thread.sleep(3000);
+
     //Assert
-    String expectedValidationErrorMessage = "Epic sadface: Username and password do not match any user in this service";
-    String actualValidationErrorMessage = loginPage.getValidationErrorMessage();
-    Assert.assertEquals(actualValidationErrorMessage, expectedValidationErrorMessage);
+    String expectedValidationErrorText = "Epic sadface: Username and password do not match any user in this service";
+    String actualValidationErrorText = loginPage.getValidationErrorMessage();
+    Assert.assertEquals(actualValidationErrorText, expectedValidationErrorText);
   }
 
 }
